@@ -1,14 +1,16 @@
 package com.qaracter.championsleague.model;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
  * Class that defines a League model.
  */
 @Entity
+@IdClass(AdmittedCountries.class)
 @Table(name = "admitted_countries")
-public class AdmittedCountries {
+public class AdmittedCountries implements Serializable {
     @Id
     private Long competitionId;
 

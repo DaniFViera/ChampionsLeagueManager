@@ -1,14 +1,16 @@
 package com.qaracter.championsleague.model;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
  * Class that defines the winners of a football league.
  */
 @Entity
+@IdClass(CompetitionWinners.class)
 @Table(name = "competition_winners")
-public class CompetitionWinners {
+public class CompetitionWinners implements Serializable {
     @Id
     private Long competitionId;
 

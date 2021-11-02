@@ -8,22 +8,36 @@ import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
+/**
+ * Petitions manager. Allows to interact with the database
+ */
 @RestController
 class TeamController {
     private final TeamRepository teamRepository;
 
+    /**
+     * Constructor
+     *
+     * @param teamRepository
+     */
     TeamController(TeamRepository teamRepository) {
         this.teamRepository = teamRepository;
     }
 
+    /**
+     * Returns all the preset teams in the database
+     */
     @GetMapping("/teams")
     List<Team> getAllTeams() {
         return teamRepository.findAll();
     }
 
+    /**
+     * Returns all the preset teams in the database
+     */
     @PostMapping("/teams")
     Team createTeam(@RequestBody Team newTeam) {
-        if (teamRepository.findByName(newTeam.getName()).isPresent()) {
+        if (teamRepository.findTeamByName(newTeam.getName()).isPresent()) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
         }
         return teamRepository.save(newTeam);
@@ -37,7 +51,7 @@ class TeamController {
 
     @PutMapping("/teams/{id}")
     Team modifyTeam(@RequestBody Team newTeam, @PathVariable Long id) {
-        if (teamRepository.findByName(newTeam.getName()).isPresent()) {
+        if (teamRepository.findTeamByName(newTeam.getName()).isPresent()) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
         }
         return teamRepository.findById(id)

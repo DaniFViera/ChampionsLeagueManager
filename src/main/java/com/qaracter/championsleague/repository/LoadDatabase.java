@@ -27,7 +27,7 @@ public class LoadDatabase {
             log.info("Preloading " + teamRepository.save(new Team("Dortmund", "Germany", "Munich", "https://a.espncdn.com/i/teamlogos/soccer/500/124.png")));
 
             log.info("Preloading " + competitionRepository.save(new Competition("UEFA Champions League")));
-            Long ECLId = teamRepository.findByName("UEFA Champions League").get().getId();
+            Long ECLId = competitionRepository.findCompByName("UEFA Champions League").get().getId();
 
             log.info("Preloading " + admittedCountriesRepository.save(new AdmittedCountries(ECLId, "PT")));
             log.info("Preloading " + admittedCountriesRepository.save(new AdmittedCountries(ECLId, "ES")));
@@ -65,7 +65,7 @@ public class LoadDatabase {
             log.info("Preloading " + admittedCountriesRepository.save(new AdmittedCountries(ECLId, "IL")));
 
 
-            Long madridId = teamRepository.findByName("Madrid").get().getId();
+            Long madridId = teamRepository.findTeamByName("Madrid").get().getId();
             log.info("Preloading " + competitionWinnersRepository.save(
                     new CompetitionWinners(madridId, ECLId, "1955/1956")));
             log.info("Preloading " + competitionWinnersRepository.save(
@@ -93,7 +93,7 @@ public class LoadDatabase {
             log.info("Preloading " + competitionWinnersRepository.save(
                     new CompetitionWinners(madridId, ECLId, "2017/2018")));
 
-            Long FBCId = teamRepository.findByName("Barcelona").get().getId();
+            Long FBCId = teamRepository.findTeamByName("Barcelona").get().getId();
             log.info("Preloading " + competitionWinnersRepository.save(
                     new CompetitionWinners(FBCId, ECLId, "1991/1992")));
             log.info("Preloading " + competitionWinnersRepository.save(
@@ -105,7 +105,7 @@ public class LoadDatabase {
             log.info("Preloading " + competitionWinnersRepository.save(
                     new CompetitionWinners(FBCId, ECLId, "2014/2015")));
 
-            Long MunichId = teamRepository.findByName("Munich").get().getId();
+            Long MunichId = teamRepository.findTeamByName("Munich").get().getId();
             log.info("Preloading " + competitionWinnersRepository.save(
                     new CompetitionWinners(FBCId, ECLId, "1973/1973")));
             log.info("Preloading " + competitionWinnersRepository.save(
@@ -119,7 +119,7 @@ public class LoadDatabase {
             log.info("Preloading " + competitionWinnersRepository.save(
                     new CompetitionWinners(FBCId, ECLId, "2019/2020")));
 
-            Long DortmundId = teamRepository.findByName("Dortmund").get().getId();
+            Long DortmundId = teamRepository.findTeamByName("Dortmund").get().getId();
             log.info("Preloading " + competitionWinnersRepository.save(
                     new CompetitionWinners(FBCId, ECLId, "1996/1997")));
         };
