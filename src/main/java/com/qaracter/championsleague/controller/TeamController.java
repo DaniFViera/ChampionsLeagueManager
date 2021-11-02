@@ -9,7 +9,7 @@ import org.springframework.web.server.ResponseStatusException;
 import java.util.List;
 
 /**
- * Petitions manager. Allows to interact with the database
+ * Team petitions manager. Allows to interact with the database
  */
 @RestController
 class TeamController {

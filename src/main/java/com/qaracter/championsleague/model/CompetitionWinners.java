@@ -9,16 +9,16 @@ import java.util.Objects;
  */
 @Entity
 @IdClass(CompetitionWinners.class)
-@Table(name = "competition_winners")
+@Table(name = "CompetitionWinners")
 public class CompetitionWinners implements Serializable {
-    @Id
-    private Long competitionId;
+    @Column(nullable = false)
+    private Long teamId;
 
     @Id
     private String season;
 
-    @Column(nullable = false)
-    private Long teamId;
+    @Id
+    private Long competitionId;
 
     /**
      * Default constructor

@@ -7,7 +7,7 @@ import java.util.Objects;
  * Class that defines a football team.
  */
 @Entity
-@Table(name = "teams")
+@Table(name = "Teams")
 public class Team {
     @Id @GeneratedValue
     private Long id;

@@ -7,7 +7,7 @@ import java.util.Objects;
  * Class that defines a League model.
  */
 @Entity
-@Table(name = "competitions")
+@Table(name = "Competitions")
 public class Competition {
     @Id @GeneratedValue
     private Long id;
