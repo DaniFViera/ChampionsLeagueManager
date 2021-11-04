@@ -7,5 +7,5 @@ import java.util.Optional;
 
 public interface CompetitionWinnersRepository extends JpaRepository<CompetitionWinners, Long> {
     //Optional<CompetitionWinners> findCompWinnerByName(String name);
-    //Optional<CompetitionWinners> findCompWinnerBySeason(String season);
+    Optional<CompetitionWinners> findCompWinnerBySeason(String season);
 }
